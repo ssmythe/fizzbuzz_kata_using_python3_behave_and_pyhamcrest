@@ -339,3 +339,110 @@ $ chmod +x ./fizzy.py
 ```bash
 $ ./fizzy.py
 ```
+
+## 34. Stage 2 - new requirements and the sixth scenario - number contains a "3"
+Now let's refactor the code to include the new requirements
+
+* Add the following to the end of the Feature description in features/fizzbuzz.feature
+```text
+Stage 2 - new requirements
+
+* A number is fizz if it is divisible by 3 or if it has a 3 in it
+```
+
+...and...
+
+```gherkin
+  Scenario: Sixth scenario
+    Given the number "13"
+    When we run the number through do_fizzbuzz
+    Then we should get back "Fizz"
+```
+We're using 13, because it's a prime number and it has a 3 in it.
+
+## 35. Run behave - fail because do_fizzbuzz doesn't have contains a "3" implemented
+```bash
+$ behave
+```
+
+## 36. Implement the number contains a "3" logic in do_fizzbuzz 
+At first, we can just use compound logic to test for both the remainder and if the number contains
+the number "3".  Python has a handy "string" in string feature, so we'll use that:
+
+* Update lib/fizzbuzz.py to contain:
+```python
+    def do_fizzbuzz(self, number):
+        if number % 3 == 0 and number % 5 == 0:
+            return "FizzBuzz"
+        if number % 5 == 0:
+            return "Buzz"
+        if number % 3 == 0 or "3" in str(number):
+            return "Fizz"
+        return str(number)
+```
+
+## 37. Run behave - pass
+```bash
+$ behave
+```
+
+## 38. Stage 2 - seventh scenario - number contains a "5"
+Let's add a seventh require about number contains a "5"
+
+* Add the following to the end of the Feature description in features/fizzbuzz.feature
+```text
+Stage 2 - new requirements
+
+* A number is fizz if it is divisible by 3 or if it has a 3 in it
+* A number is buzz if it is divisible by 5 or if it has a 5 in it
+```
+
+...and...
+
+```gherkin
+  Scenario: Seventh scenario
+    Given the number "59"
+    When we run the number through do_fizzbuzz
+    Then we should get back "Buzz"
+```
+
+We're using 59, because it's a prime number and it has a 5 in it.
+
+## 39. Run behave - fail because do_fizzbuzz doesn't have contains a "5" implemented
+```bash
+$ behave
+```
+
+## 40. Implement the number contains a "5" logic in do_fizzbuzz 
+At first, we can just use compound logic to test for both the remainder and if the number contains
+the number "5".  Python has a handy "string" in string feature, so we'll use that:
+
+* Update lib/fizzbuzz.py to contain:
+```python
+    def do_fizzbuzz(self, number):
+        if number % 3 == 0 and number % 5 == 0:
+            return "FizzBuzz"
+        if number % 5 == 0 or "5" in str(number):
+            return "Buzz"
+        if number % 3 == 0 or "3" in str(number):
+            return "Fizz"
+        return str(number)
+```
+
+## 41. Run behave - pass
+```bash
+$ behave
+```
+
+## 42. Run fizzy.py and see how the output has changed for the Stage 2 requirements
+```bash
+$ ./fizzy.py
+```
+
+----
+
+Now that you've gone through this walkthrough, try it on your own from scratch!
+  
+See how far you can get without referencing the walkthrough!
+  
+Enjoy!
