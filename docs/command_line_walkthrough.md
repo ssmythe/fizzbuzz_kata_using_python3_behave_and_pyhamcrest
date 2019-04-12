@@ -190,7 +190,7 @@ Great job!  Our first test has passed.  Now onto to the second scenario.
 
 ## 18. Uncomment the second scenario for "2"
 * Uncomment the first scenario in features/fizzbuzz.feature to look like:
-```python
+```gherkin
   Scenario: Second scenario
     Given the number "2"
     When we run the number through do_fizzbuzz
@@ -207,7 +207,7 @@ are multiples of 3 and 5.
 
 ## 20. Uncomment the third scenario for "3"
 * Uncomment the third scenario in features/fizzbuzz.feature to look like:
-```python
+```gherkin
   Scenario: Third scenario
     Given the number "3"
     When we run the number through do_fizzbuzz
@@ -241,7 +241,7 @@ $ behave
 
 ## 24. Uncomment the fourth scenario for "5"
 * Uncomment the fourth scenario in features/fizzbuzz.feature to look like:
-```python
+```gherkin
   Scenario: Fourth scenario
     Given the number "5"
     When we run the number through do_fizzbuzz
@@ -277,7 +277,7 @@ $ behave
 
 ## 28. Uncomment the fifth scenario for "15"
 * Uncomment the fifth scenario in features/fizzbuzz.feature to look like:
-```python
+```gherkin
   Scenario: Fifth scenario
     Given the number "15"
     When we run the number through do_fizzbuzz
