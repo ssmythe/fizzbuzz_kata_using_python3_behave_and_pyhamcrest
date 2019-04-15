@@ -9,7 +9,7 @@ Review the requirements in the CodingDojo.org link for FizzBuzz before starting 
 
 ## Walkthroughs
 * [Command line setup](docs/command_line_walkthrough.md)
-* [Pycharm setup](docs/pycharm_walkthrough.md)
+* [PyCharm setup](docs/pycharm_walkthrough.md)
 
 ## References
 * [Parse library](https://pypi.org/project/parse/)
