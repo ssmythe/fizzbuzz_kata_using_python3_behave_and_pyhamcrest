@@ -13,8 +13,8 @@ using the JetBrains PyCharm IDE.
 ## 3. Setup venv
 * In a PyCharm terminal window, type
 ```
-$ pip install --upgrade pip
-$ pip install behave PyHamcrest
+$ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip
+$ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org behave PyHamcrest
 ```
 
 ## 4. Create directory structure
