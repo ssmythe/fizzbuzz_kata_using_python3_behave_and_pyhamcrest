@@ -12,8 +12,8 @@ $ cd fizzbuzz_behave_00N
 ```bash
 $ python3 -m venv venv
 $ source venv/bin/activate
-$ pip install --upgrade pip
-$ pip install behave PyHamcrest
+$ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org --upgrade pip
+$ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org behave PyHamcrest
 ```
 
 ## 3. Create directory structure
