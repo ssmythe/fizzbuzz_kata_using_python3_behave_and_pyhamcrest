@@ -367,7 +367,29 @@ Fizz
 Buzz
 ```
 
-## 37. Stage 2 - new requirements and the sixth scenario - number contains a "3"
+## 37. Refactor to simplify logic
+* Update lib/fizzbuzz.py to contain:
+```python
+class FizzBuzz:
+    def do_fizzbuzz(self, number):
+        results = ""
+        if number % 3 == 0:
+            results += "Fizz"
+        if number % 5 == 0:
+            results += "Buzz"
+        return results or str(number)
+```
+
+Python has a very nice behavior with the "or" operator and strings, where the expressions will give "results"
+if it is not empty (an empty string returns False, a non-empty string returns True), otherwise, return
+"str(number)".
+
+## 38. Review auto-run output - Tests pass
+```text
+Process finished with exit code 0
+```
+
+## 39. Stage 2 - new requirements and the sixth scenario - number contains a "3"
 Now let's refactor the code to include the new requirements
 
 * Add the following to the end of the Feature description in features/fizzbuzz.feature
@@ -387,11 +409,11 @@ Stage 2 - new requirements
 ```
 We're using 13, because it's a prime number and it has a 3 in it.
 
-## 38. Run behave tests on features
+## 40. Run behave tests on features
 * Right-click on "features" and choose Run 'features'
 * Click Toggle auto-test icon off and then back on to continuously run tests
 
-## 39. Review auto-run output - Tests fail - do_fizzbuzz doesn't have contains a "3" implemented
+## 41. Review auto-run output - Tests fail - do_fizzbuzz doesn't have contains a "3" implemented
 ```text
 Assertion Failed: 
 Expected: 'Fizz'
@@ -405,13 +427,12 @@ the number "3".  Python has a handy "string" in string feature, so we'll use tha
 * Update lib/fizzbuzz.py to contain:
 ```python
     def do_fizzbuzz(self, number):
-        if number % 3 == 0 and number % 5 == 0:
-            return "FizzBuzz"
-        if number % 5 == 0:
-            return "Buzz"
+        results = ""
         if number % 3 == 0 or "3" in str(number):
-            return "Fizz"
-        return str(number)
+            results += "Fizz"
+        if number % 5 == 0:
+            results += "Buzz"
+        return results or str(number)
 ```
 
 ## 41. Review auto-run output - Tests pass
@@ -455,13 +476,12 @@ the number "5".  Python has a handy "string" in string feature, so we'll use tha
 * Update lib/fizzbuzz.py to contain:
 ```python
     def do_fizzbuzz(self, number):
-        if number % 3 == 0 and number % 5 == 0:
-            return "FizzBuzz"
-        if number % 5 == 0 or "5" in str(number):
-            return "Buzz"
+        results = ""
         if number % 3 == 0 or "3" in str(number):
-            return "Fizz"
-        return str(number)
+            results += "Fizz"
+        if number % 5 == 0 or "5" in str(number):
+            results += "Buzz"
+        return results or str(number)
 ```
 
 ## 45. Review auto-run output - Tests pass

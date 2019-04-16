@@ -314,7 +314,29 @@ return the string "FizzBuzz".
 $ behave
 ```
 
-## 32. Write the program to FizzBuzz the numbers 1 to 100
+## 32. Refactor to simplify logic
+* Update lib/fizzbuzz.py to contain:
+```python
+class FizzBuzz:
+    def do_fizzbuzz(self, number):
+        results = ""
+        if number % 3 == 0:
+            results += "Fizz"
+        if number % 5 == 0:
+            results += "Buzz"
+        return results or str(number)
+```
+
+Python has a very nice behavior with the "or" operator and strings, where the expressions will give "results"
+if it is not empty (an empty string returns False, a non-empty string returns True), otherwise, return
+"str(number)".
+
+## 33. Run behave - pass
+```bash
+$ behave
+```
+
+## 34. Write the program to FizzBuzz the numbers 1 to 100
 Now that we have the core logic in our FizzBuzz class, let's write a simple wrapper script that uses
 this class to iterate through the numbers 1 to 100, running it through the do_fizzbuzz method.
 
@@ -335,12 +357,12 @@ Make the script executable:
 $ chmod +x ./fizzy.py
 ```
 
-## 33. Run the script and see how it meets the FizzBuzz kata requirements!
+## 35. Run the script and see how it meets the FizzBuzz kata requirements!
 ```bash
 $ ./fizzy.py
 ```
 
-## 34. Stage 2 - new requirements and the sixth scenario - number contains a "3"
+## 36. Stage 2 - new requirements and the sixth scenario - number contains a "3"
 Now let's refactor the code to include the new requirements
 
 * Add the following to the end of the Feature description in features/fizzbuzz.feature
@@ -360,33 +382,32 @@ Stage 2 - new requirements
 ```
 We're using 13, because it's a prime number and it has a 3 in it.
 
-## 35. Run behave - fail because do_fizzbuzz doesn't have contains a "3" implemented
+## 37. Run behave - fail because do_fizzbuzz doesn't have contains a "3" implemented
 ```bash
 $ behave
 ```
 
-## 36. Implement the number contains a "3" logic in do_fizzbuzz 
+## 38. Implement the number contains a "3" logic in do_fizzbuzz 
 At first, we can just use compound logic to test for both the remainder and if the number contains
 the number "3".  Python has a handy "string" in string feature, so we'll use that:
 
 * Update lib/fizzbuzz.py to contain:
 ```python
     def do_fizzbuzz(self, number):
-        if number % 3 == 0 and number % 5 == 0:
-            return "FizzBuzz"
-        if number % 5 == 0:
-            return "Buzz"
+        results = ""
         if number % 3 == 0 or "3" in str(number):
-            return "Fizz"
-        return str(number)
+            results += "Fizz"
+        if number % 5 == 0:
+            results += "Buzz"
+        return results or str(number)
 ```
 
-## 37. Run behave - pass
+## 39. Run behave - pass
 ```bash
 $ behave
 ```
 
-## 38. Stage 2 - seventh scenario - number contains a "5"
+## 40. Stage 2 - seventh scenario - number contains a "5"
 Let's add a seventh require about number contains a "5"
 
 * Add the following to the end of the Feature description in features/fizzbuzz.feature
@@ -408,33 +429,32 @@ Stage 2 - new requirements
 
 We're using 59, because it's a prime number and it has a 5 in it.
 
-## 39. Run behave - fail because do_fizzbuzz doesn't have contains a "5" implemented
+## 41. Run behave - fail because do_fizzbuzz doesn't have contains a "5" implemented
 ```bash
 $ behave
 ```
 
-## 40. Implement the number contains a "5" logic in do_fizzbuzz 
+## 42. Implement the number contains a "5" logic in do_fizzbuzz 
 At first, we can just use compound logic to test for both the remainder and if the number contains
 the number "5".  Python has a handy "string" in string feature, so we'll use that:
 
 * Update lib/fizzbuzz.py to contain:
 ```python
     def do_fizzbuzz(self, number):
-        if number % 3 == 0 and number % 5 == 0:
-            return "FizzBuzz"
-        if number % 5 == 0 or "5" in str(number):
-            return "Buzz"
+        results = ""
         if number % 3 == 0 or "3" in str(number):
-            return "Fizz"
-        return str(number)
+            results += "Fizz"
+        if number % 5 == 0 or "5" in str(number):
+            results += "Buzz"
+        return results or str(number)
 ```
 
-## 41. Run behave - pass
+## 43. Run behave - pass
 ```bash
 $ behave
 ```
 
-## 42. Run fizzy.py and see how the output has changed for the Stage 2 requirements
+## 44. Run fizzy.py and see how the output has changed for the Stage 2 requirements
 ```bash
 $ ./fizzy.py
 ```
