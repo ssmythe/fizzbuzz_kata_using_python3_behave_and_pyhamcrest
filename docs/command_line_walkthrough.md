@@ -393,14 +393,14 @@ the number "3".  Python has a handy "string" in string feature, so we'll use tha
 
 * Update lib/fizzbuzz.py to contain:
 ```python
-    class FizzBuzz:
-        def do_fizzbuzz(self, number):
-            results = ""
-            if number % 3 == 0 or "3" in str(number):
-                results += "Fizz"
-            if number % 5 == 0:
-                results += "Buzz"
-            return results or str(number)
+class FizzBuzz:
+    def do_fizzbuzz(self, number):
+        results = ""
+        if number % 3 == 0 or "3" in str(number):
+            results += "Fizz"
+        if number % 5 == 0:
+            results += "Buzz"
+        return results or str(number)
 ```
 
 ## 39. Run behave - pass
