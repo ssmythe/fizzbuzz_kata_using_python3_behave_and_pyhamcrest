@@ -441,6 +441,7 @@ the number "5".  Python has a handy "string" in string feature, so we'll use tha
 
 * Update lib/fizzbuzz.py to contain:
 ```python
+class FizzBuzz:
     def do_fizzbuzz(self, number):
         results = ""
         if number % 3 == 0 or "3" in str(number):
